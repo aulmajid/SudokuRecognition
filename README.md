@@ -1,2 +1,2 @@
 # SudokuRecognition
-Mendeteksi Kotak Permainan Sudoku Dari Citra
+Mengekstrak Kotak Permainan Sudoku Dari Citra
