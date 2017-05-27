@@ -4,6 +4,8 @@ import utils
 
 path = 'citra/sudoku.jpg'
 
+
+
 # image
 original = cv2.imread(path)
 shape = original.shape
