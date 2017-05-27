@@ -2,12 +2,12 @@ import cv2
 import numpy as np
 import utils
 
-path = 'citra/sudoku.jpg'
-
+srcPath = 'citra/sudoku.jpg'
+dstPath = 'sudoku.jpg'
 
 
 # image
-original = cv2.imread(path)
+original = cv2.imread(srcPath)
 shape = original.shape
 height = shape[0]
 width = shape[1]
@@ -34,7 +34,6 @@ for i in range(width):
     for j in range(height):
         if sudokuRect[j][i] < 255:
             sudokuRect[j][i] = 0
-sudokuRect = cv2.erode(sudokuRect, kernel)
 
 # cari garis2 luar dengan hough transform
 lines = cv2.HoughLines(sudokuRect, 1, np.pi / 180, 200)
@@ -68,5 +67,5 @@ sudoku = cv2.warpPerspective(original, M, (newSize, newSize))
 # print
 cv2.imshow('original', original)
 cv2.imshow('sudoku', sudoku)
-cv2.imwrite('sudoku.jpg', sudoku)
+cv2.imwrite(dstPath, sudoku)
 cv2.waitKey()
